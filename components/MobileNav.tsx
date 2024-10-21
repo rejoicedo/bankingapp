@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Footer from "./Footer"
   
 
 const MobileNav = ({ user }: MobileNavProps) => {
@@ -37,25 +38,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                             {sidebarLinks.map((item) => {
                                 const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
 
-                                return ( /*
-                                    <SheetClose asChild key={item.route}>
-                                        <Link href={item.route} key={item.label} className={cn('mobilenav-sheet_close w-full', {
-                                            'bg-bank-gradient': isActive })}>
-
-                                            <div className="relative size-6">
-                                                <Image src={item.imgURL} alt={item.label} fill className={cn({
-                                                    'brightness-[3] invert-0': isActive
-                                                })}/>
-                                            </div>
-                                            <p className={cn("sidebar-label", {"!text-white": isActive })}>
-                                                {item.label}
-                                            </p>
-
-                                        </Link>
-                                    </SheetClose>
-                                    */
-
-                                    
+                                return ( 
                                     <SheetClose asChild key={item.route}>
                                         <Link href={item.route} key={item.label} className={cn('mobilenav-sheet_close w-full', {
                                             'bg-bank-gradient': isActive })}>
@@ -78,7 +61,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                         </nav>
                     </SheetClose>
 
-                    FOOTER
+                    <Footer user={user} type="mobile"/>
                 </div>
             </SheetContent>
         </Sheet>
